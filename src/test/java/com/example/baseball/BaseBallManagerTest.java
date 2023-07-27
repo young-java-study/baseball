@@ -16,6 +16,4 @@ class BaseBallManagerTest {
         }).getMessage();
         assertThat(errorMessage).isEqualTo("1과 2만 입력해주세요");
     }
-
-
 }

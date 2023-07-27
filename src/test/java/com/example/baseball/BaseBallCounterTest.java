@@ -40,4 +40,16 @@ class BaseBallCounterTest {
         boolean result = baseBallCounter.getBall()==2;
         assertThat(result).isTrue();
     }
+    @Test
+    @DisplayName("볼과 스트라이크가 잘 출력되는지 확인")
+    void Display_BaseBall(){
+        BaseBallCounter baseBallCounter = new BaseBallCounter();
+        User user = new User("351");
+        Computer computer = new Computer("153");
+        baseBallCounter.CheckBase(user.getUserNum(),computer.getComputerNum());
+        baseBallCounter.CheckStrike(user.getUserNum(),computer.getComputerNum());
+        baseBallCounter.CheckBall();
+        String displayBase = baseBallCounter.display();
+        assertThat(displayBase).isEqualTo("2볼 1스트라이크");
+    }
 }
