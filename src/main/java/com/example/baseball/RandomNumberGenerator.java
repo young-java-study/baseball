@@ -3,10 +3,10 @@ package com.example.baseball;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Computer {
-    Random random = new Random();
-    private ArrayList<Integer> computerNum = new ArrayList<>();
-    public Computer(){
+public class RandomNumberGenerator {
+    private Random random = new Random();
+    private final ArrayList<Integer> computerNum = new ArrayList<>();
+    public RandomNumberGenerator(){
         int randomNum;
         while(computerNum.size()<3){
             randomNum = random.nextInt(8)+1;
@@ -16,7 +16,7 @@ public class Computer {
         }
     }
     //랜덤이라 어떻게 테스트 할지 몰라서 임시로 만들었습니다...
-    public Computer(String inputNum) {
+    public RandomNumberGenerator(String inputNum) {
         String[] computerary = inputNum.split("");
         for (int i = 0; i < computerary.length; i++) {
             try {
@@ -27,6 +27,7 @@ public class Computer {
             }
         }
     }
+
     public ArrayList<Integer> getComputerNum() {
         return computerNum;
     }

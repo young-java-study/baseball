@@ -1,12 +1,15 @@
 package com.example.baseball;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 public class User {
-    public static final int NUMBER_LENGTH = 3;
-    private ArrayList<Integer> userNum = new ArrayList<>();
+    private static final int NUMBER_LENGTH = 3;
+    private final ArrayList<Integer> userNum = new ArrayList<>();
     public User(String inputNum){
         String[] userary = inputNum.split("");
+        valiDateInput(userary);
         for (int i = 0; i < userary.length; i++) {
             try {
                 this.userNum.add(Integer.parseInt(userary[i]));
@@ -15,13 +18,14 @@ public class User {
                 throw e;
             }
         }
-        WrongNum();
     }
-    public void WrongNum(){
-        if (userNum.size()> NUMBER_LENGTH|| userNum.size()<NUMBER_LENGTH){
+    private void valiDateInput(String[] userary){
+        HashSet<String> set = new HashSet<String>();
+        set.addAll(List.of(userary));
+        if (userary.length> NUMBER_LENGTH|| userary.length<NUMBER_LENGTH){
             throw new IllegalArgumentException("숫자를 3개 입력해 주세요.");
         }
-        if(userNum.get(0) == userNum.get(1) || userNum.get(1) == userNum.get(2) || userNum.get(2) == userNum.get(0)){
+        if (set.size()<NUMBER_LENGTH){
             throw new IllegalArgumentException("중복되지 않은 숫자를 입력해주세요.");
         }
     }

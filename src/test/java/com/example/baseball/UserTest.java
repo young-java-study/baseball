@@ -35,5 +35,4 @@ class UserTest {
         }).getMessage();
         assertThat(errorMessage).isEqualTo("중복되지 않은 숫자를 입력해주세요.");
     }
-
 }

@@ -1,43 +1,35 @@
 package com.example.baseball;
 
 public class BaseBallManager {
-    public static final int NUMBER_LENGTH = 3;
-    public Computer computer;
-    BaseBallCounter baseBallCounter;
-    boolean result;
-    public boolean CheckGame(){
+    private RandomNumberGenerator computer;
+    private Judge judge;
+    private ScoreBoard scoreBoard;
+    private boolean result;
+    public boolean checkGame(){
         return result;
     }
-
-    public void gameStart() {
-        computer = new Computer();
+    public void play(){
+        computer = new RandomNumberGenerator();
         result = true;
     }
-
-    public void CompareNumber(User user) {
-        baseBallCounter = new BaseBallCounter();
-        baseBallCounter.CheckBase(user.getUserNum(),computer.getComputerNum());
-        baseBallCounter.CheckStrike(user.getUserNum(),computer.getComputerNum());
-        baseBallCounter.CheckBall();
+    public void compareNumber(User user) {
+        judge = new Judge(user.getUserNum(),computer.getComputerNum());
+        scoreBoard = judge.compareNumber();
     }
-
-    public String ShowBase() {
-        return baseBallCounter.display();
+    public StringBuilder displayScoreboard(){
+        return scoreBoard.showScore();
     }
-
-    public boolean isSuccess() {
-        if (baseBallCounter.getStrike() == 3){
-            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+    public boolean isSuccess(){
+        if (scoreBoard.hasThreeStrike()){
             return true;
         }
         return false;
     }
-
-    public void ReStartorExit(String askNum) {
-        if (AfterGame.getAfterGameNum(askNum).equals("RESTART")){
-            gameStart();
+    public void reStartOption(String askNum){
+        if (RestartOption.getAfterGameNum(askNum).equals("RESTART")){
+            play();
         }
-        if (AfterGame.getAfterGameNum(askNum).equals("EXIT")){
+        if (RestartOption.getAfterGameNum(askNum).equals("EXIT")){
             result = false;
         }
     }
