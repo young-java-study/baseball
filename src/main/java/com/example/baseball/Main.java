@@ -3,11 +3,13 @@ package com.example.baseball;
 import java.util.Scanner;
 
 public class Main {
+	private static final boolean START = true;
+	private static final boolean EXIT = false;
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		User user;
 		RandomNumberGenerator computer = new RandomNumberGenerator();
-		Judge judge = new Judge(computer.getComputerNum(), true);//여기서 playing의 true는 게임의 진행 상태를 판단하는 것.
+		Judge judge = new Judge(computer.getComputerNum(), START);//여기서 playing의 true는 게임의 진행 상태를 판단하는 것.
 		while(judge.isNotGameOver()){
 			System.out.print("숫자를 입력해주세요 : ");
 			String inputnum = scanner.nextLine();
@@ -26,9 +28,9 @@ public class Main {
 	private static Judge askForRestart(String askNum) {
 		RandomNumberGenerator computer = new RandomNumberGenerator();
 		if (RestartOption.getAfterGameNum(askNum).equals("RESTART")){
-			return new Judge(computer.getComputerNum(),true);
+			return new Judge(computer.getComputerNum(),START);
 		}
-		return new Judge(computer.getComputerNum(),false);
+		return new Judge(computer.getComputerNum(),EXIT);
 	}
 
 	private static StringBuilder showScoreBoard(ScoreBoard scoreBoard) {
