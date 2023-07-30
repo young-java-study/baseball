@@ -6,7 +6,7 @@ public class User {
 
     public int[] getUserNumber(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("숫자 입력: ");
+        System.out.print("숫자 입력: ");
         int userNumber = scanner.nextInt();
 
         int[] userNumberList = new int[3];

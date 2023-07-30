@@ -18,6 +18,7 @@ public class BaseballGame {
 
     public int checkBall(int[] user, int[] computer){
         ball = 0;
+
        if (user[0] == computer[1] || user[0] == computer[2]){
            ball++;
        }
