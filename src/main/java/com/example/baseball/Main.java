@@ -7,7 +7,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		User user;
 		RandomNumberGenerator computer = new RandomNumberGenerator();
-		Judge judge = new Judge(computer.getComputerNum(), true);
+		Judge judge = new Judge(computer.getComputerNum(), true);//여기서 playing의 true는 게임의 진행 상태를 판단하는 것.
 		while(judge.isNotGameOver()){
 			System.out.print("숫자를 입력해주세요 : ");
 			String inputnum = scanner.nextLine();

@@ -9,13 +9,13 @@ import java.util.stream.IntStream;
 public class Judge {
     private static final int NUMBER_LENGTH = 3;
     private final Map<Integer,Integer> computerNumMap;
-    private final boolean checkgame;
-    public Judge(List<Integer> computerNum, boolean checkgame) {
+    private final boolean playing;
+    public Judge(List<Integer> computerNum, boolean playing) {
         computerNumMap = IntStream.range(0,computerNum.size())
                 .boxed()
                 .collect(Collectors.toMap(index -> index, computerNum::get));
 
-        this.checkgame = checkgame;
+        this.playing = playing;
     }
     public ScoreBoard compareNumber(List<Integer> userNum){
         List<ScoreStatus> scoreStatuses = new ArrayList<>();
@@ -38,6 +38,6 @@ public class Judge {
     }
 
     public boolean isNotGameOver() {
-        return checkgame;
+        return playing;
     }
 }
