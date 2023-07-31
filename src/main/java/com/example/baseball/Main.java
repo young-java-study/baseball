@@ -1,27 +1,35 @@
 package com.example.baseball;
 
+import java.util.Scanner;
+
 public class Main {
 
+  private static boolean START = true;
 
-	public static void main(String[] args) {
-		NumberInput numberInput = new NumberInput();
-		NumberComparator numberComparator = new NumberComparator();
-		ResultOutput resultOutput = new ResultOutput();
-		boolean isGameOver = true;
-		while (isGameOver){
-			int[] computerNumber = numberInput.getComputerNumber();
-			String result = "";
-			while (!result.equals("3스트라이크")){
-				for (int i = 0; i < computerNumber.length; i++) {
-					System.out.print(computerNumber[i]);
-				}
-				int[] userNumber = numberInput.getUserNumber();
-				int strikeCount = numberComparator.strikeCount(computerNumber,userNumber);
-				int ballCount = numberComparator.ballCount(computerNumber,userNumber);
-				System.out.println(resultOutput.showResult(strikeCount, ballCount));
-				result= resultOutput.showResult(strikeCount,ballCount);
-			}
-			isGameOver = resultOutput.askToRestartOrExit();
-		}
-	}
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    while (START) {
+      RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+      while (true) {
+        ShowMessage.showInputMessage();
+
+        CheckUserNumber checkUserNumber = new CheckUserNumber(scanner.nextInt());
+        CompareNumber compareNumber = new CompareNumber(checkUserNumber.getUserNumber(),
+            randomNumberGenerator.getRandomNumber());
+        ShowResult showResult = new ShowResult(compareNumber.getBallResult(),
+            compareNumber.getStrikeResult());
+
+        System.out.println(showResult.getMESSAGE());
+        if (compareNumber.getStrikeResult() == 3) {
+          break;
+        }
+
+      }
+      ShowMessage.printSuccessMessage();
+      ShowMessage.askRestart();
+      GameRestartController gameRestartController = new GameRestartController(scanner.nextInt());
+      START = gameRestartController.getGameRestartChoice();
+    }
+  }
 }
+
