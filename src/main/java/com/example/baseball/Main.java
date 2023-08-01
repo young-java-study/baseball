@@ -11,12 +11,12 @@ public class Main {
 			Player player = new Player();
 			Manager manager = new Manager();
 
-			int[] computer_Final = computer.made_Computer();
+			int[] endComputerAnswer = computer.madeComputer();
 			boolean isCorrect = false; // 사용자가 모든 숫자를 맞췄는지를 나타내는 변수
 
 			while (!isCorrect) { // 사용자가 정답을 맞출 때까지 반복함.
-				int[] player_Final = player.made_Player(computer_Final.length);
-				isCorrect = Manager.compare(computer_Final, player_Final);
+				int[] endPlayerAnswer = player.madePlayer(endComputerAnswer.length);
+				isCorrect = Manager.compare(endComputerAnswer, endPlayerAnswer);
 			}
 
 			System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요. : ");
