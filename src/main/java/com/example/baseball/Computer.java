@@ -1,6 +1,6 @@
 package com.example.baseball;
 import java.util.*;
-public class Computer{	// Computer 클래스 -> 컴퓨터가 랜덤을 돌려서 정답을 생성해야 함.
+public class Computer{	 // Computer 클래스 -> 컴퓨터가 랜덤을 돌려서 정답을 생성해야 함.
 
     private int count = 3; // 3개의 숫자를 생성
     private int[] inputComputerNumbers = new int[count]; // 크기가 3인 정수열 배열 선언 <- 랜덤으로 생성된 숫자를 저장함.

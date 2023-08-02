@@ -1,5 +1,5 @@
 package com.example.baseball;
-public class Manager{ // Manager 클래스 -> 게임 진행 상태를 판단
+public class Manager{  // Manager 클래스 -> 게임 진행 상태를 판단
     public static boolean compare(int[] compareComputer, int[] comparePlayer) {
         // 사용자가 입력한 숫자와 컴퓨터가 만든 숫자를 배열로 비교하여 스트라이크와 볼의 개수를 계산
         // 스트라이크와 볼의 개수를 계산하고 출력한 후, 사용자가 모든 숫자를 맞췄는지 여부를 반환
