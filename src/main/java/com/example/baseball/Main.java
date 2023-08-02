@@ -14,7 +14,7 @@ public class Main {
 			int[] endComputerAnswer = computer.madeComputer();
 			boolean isCorrect = false; // 사용자가 모든 숫자를 맞췄는지를 나타내는 변수
 
-			while (!isCorrect) { // 사용자가 정답을 맞출 때까지 반복함.
+			while (!isCorrect) { // 사용자가 정답을 맞출 때까지 반복함
 				int[] endPlayerAnswer = player.madePlayer(endComputerAnswer.length);
 				isCorrect = Manager.compare(endComputerAnswer, endPlayerAnswer);
 			}

@@ -1,6 +1,6 @@
 package com.example.baseball;
 import java.util.*;
-public class Player{ //  Player 클래스 -> 정답을 맞출 때까지 숫자를 계속 입력해야 함.
+public class Player{ // Player 클래스 -> 정답을 맞출 때까지 숫자를 계속 입력해야 함.
 
     private int[] inputPlayerNumbers; // // 사용자가 입력한 숫자들을 저장하는 배열
     public int[] madePlayer(int count) {// 사용자가 입력한 숫자를 배열로 저장하는 메서드
