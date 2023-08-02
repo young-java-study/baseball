@@ -1,8 +1,10 @@
 package com.example.baseball;
 
-public class Main {
+import com.example.baseball.controller.GameController;
 
-	public static void main(String[] args) {
-		System.out.println("Hello world!");
-	}
+public class Main {
+    public static void main(String args[]){
+        GameController gameController = new GameController();
+        gameController.playTheGame();
+    }
 }
