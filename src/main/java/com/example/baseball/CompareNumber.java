@@ -3,42 +3,36 @@ package com.example.baseball;
 import java.util.HashSet;
 
 public class CompareNumber {
-
-  private int STRIKE = 0;
-  private int BALL = 0;
-  private final int NUMBER_LENGTH = 3;
-
+  private static final int NUMBER_LENGTH = 3;
+  private int[] userNumber = {};
+  private int[] randomNumber = {};
   public CompareNumber(int[] userNumber, int[] randomNumber) {
-    countStrike(userNumber, randomNumber);
-    countBall(userNumber, randomNumber);
+    this.userNumber = userNumber;
+    this.randomNumber =randomNumber;
   }
 
-  public void countStrike(int[] userNumber, int[] randomNumber) {
+  public int countStrike() {
+    int strike = 0;
     for (int i = 0; i < NUMBER_LENGTH; i++) {
       if (userNumber[i] == randomNumber[i]) {
-        STRIKE++;
+        strike++;
       }
     }
+    return strike;
   }
 
-  public void countBall(int[] userNumber, int[] randomNumber) {
+  public int countBall() {
     HashSet<Integer> set = new HashSet<>();
+    int ball = 0;
     for(int number : userNumber){
       set.add(number);
     }
     for (int i = 0; i < NUMBER_LENGTH; i++) {
       if (set.contains(randomNumber[i])&&userNumber[i]!=randomNumber[i]){
-        BALL++;
+        ball++;
       }
     }
-  }
-
-  public int getStrikeResult() {
-    return STRIKE;
-  }
-
-  public int getBallResult() {
-    return BALL;
+    return ball;
   }
 
 }

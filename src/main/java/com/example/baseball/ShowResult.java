@@ -8,7 +8,7 @@ public class ShowResult {
     resultStatus(balls, strikes);
   }
 
-  public void resultStatus(int balls, int strikes) {
+  private void resultStatus(int balls, int strikes) {
     if (balls == 0 && strikes == 0) {
       MESSAGE = "낫싱";
     }

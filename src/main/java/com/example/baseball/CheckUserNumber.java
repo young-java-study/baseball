@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class CheckUserNumber {
 
-  private final int[] USER_NUMBER_LIST = new int[3];
+  private int[] USER_NUMBER_LIST = new int[3];
 
   public CheckUserNumber(int userInput) {
     if (100 > userInput || userInput > 999) {
@@ -17,7 +17,7 @@ public class CheckUserNumber {
     }
   }
 
-  public void splitNumbersToArray(int userInput) {
+  private void splitNumbersToArray(int userInput) {
     for (int i = 2; i >= 0; i--) {
       USER_NUMBER_LIST[i] = userInput % 10;
       userInput /= 10;

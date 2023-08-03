@@ -13,7 +13,7 @@ class CompareNumberTest {
     int[] randomNumber = {3, 1, 2};
 
     CompareNumber compareNumber = new CompareNumber(userNumber,randomNumber);
-    int ballCount = compareNumber.getBallResult();
+    int ballCount = compareNumber.countBall();
 
     assertEquals(3, ballCount);
   }
@@ -24,7 +24,7 @@ class CompareNumberTest {
     int[] randomNumber = {1, 4, 3};
 
     CompareNumber compareNumber = new CompareNumber(userNumber,randomNumber);
-    int strikeCount = compareNumber.getStrikeResult();
+    int strikeCount = compareNumber.countStrike();
 
     assertEquals(1, strikeCount);
   }

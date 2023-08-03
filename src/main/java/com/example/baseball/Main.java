@@ -16,19 +16,18 @@ public class Main {
         CheckUserNumber checkUserNumber = new CheckUserNumber(scanner.nextInt());
         CompareNumber compareNumber = new CompareNumber(checkUserNumber.getUserNumber(),
             randomNumberGenerator.getRandomNumber());
-        ShowResult showResult = new ShowResult(compareNumber.getBallResult(),
-            compareNumber.getStrikeResult());
-
+        ShowResult showResult = new ShowResult(compareNumber.countBall(),
+            compareNumber.countStrike());
         System.out.println(showResult.getMESSAGE());
-        if (compareNumber.getStrikeResult() == 3) {
+        if (compareNumber.countStrike() == 3) {
           break;
         }
 
       }
       ShowMessage.printSuccessMessage();
       ShowMessage.askRestart();
-      GameRestartController gameRestartController = new GameRestartController(scanner.nextInt());
-      START = gameRestartController.getGameRestartChoice();
+      CheckGameRestart checkGameRestart = new CheckGameRestart(scanner.nextInt());
+      START = checkGameRestart.getGameRestartChoice();
     }
   }
 }

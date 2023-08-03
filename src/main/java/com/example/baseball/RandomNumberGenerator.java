@@ -5,13 +5,13 @@ import java.util.Random;
 
 public class RandomNumberGenerator {
 
-  private final static int[] RANDOM_NUMBER_LIST = new int[3];
+  private int[] RANDOM_NUMBER_LIST = new int[3];
 
   public RandomNumberGenerator() {
     generateRandomNumberList();
   }
 
-  public int generateRandomNumber() {
+  private int generateRandomNumber() {
     Random random = new Random();
     int randomNum = random.nextInt(9) + 1;
     return randomNum;
