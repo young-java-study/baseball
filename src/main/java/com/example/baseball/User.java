@@ -4,20 +4,13 @@ import java.util.Scanner;
 
 public class User {
 
-    public int[] getUserNumber(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("숫자 입력: ");
-        int userNumber = scanner.nextInt();
-
+    public int[] inputNumber(int userNumber){
         int[] userNumberList = new int[3];
-
-        userNumberList = UserNumber(userNumber);
-
+        userNumberList = userNumber(userNumber);
         return userNumberList;
-
     }
 
-    public int[] UserNumber(int num){
+    public int[] userNumber(int num){
         int[] userList = new int[3];
         userList[0] = num/100;
         userList[1] = num%100/10;

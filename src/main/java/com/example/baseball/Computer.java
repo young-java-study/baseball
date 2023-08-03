@@ -18,9 +18,9 @@ public class Computer {
     public int[] randomNumber(){
         Random random = new Random();
         int[] computerNumber = new int[LIST_LENGTH];
-        computerNumber[0] = random.nextInt(9)+1;
-        computerNumber[1] = random.nextInt(9)+1;
-        computerNumber[2] = random.nextInt(9)+1;
+        for(int i =0; i<computerNumber.length;i++){
+            computerNumber[i] = random.nextInt(9)+1;
+        }
         duplicateNumber(computerNumber);
         return computerNumber;
     }
