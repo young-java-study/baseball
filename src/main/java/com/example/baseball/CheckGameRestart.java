@@ -1,23 +1,20 @@
 package com.example.baseball;
 
 public class CheckGameRestart {
-  private boolean RESTART = true;
-  public CheckGameRestart(int userRestartChoice){
-    if (userRestartChoice!=1&&userRestartChoice!=2) {
+
+  private final static int RESTART = 1;
+  private final static int EXIT = 2;
+
+  public static boolean checkRestart(int userRestartChoice) {
+    if (userRestartChoice != RESTART && userRestartChoice != EXIT) {
       throw new IllegalArgumentException(ShowMessage.exceptionMessage());
     }
-    checkRestart(userRestartChoice);
 
-  }
-  private void checkRestart(int userRestartChoice){
-    if (userRestartChoice == 1) {
-      RESTART = true;
+    if (userRestartChoice == RESTART) {
+      return true;
     }
-    if (userRestartChoice == 2) {
-      RESTART = false;
-    }
-  }
-  public boolean getGameRestartChoice(){
-    return RESTART;
+    return false;
   }
 }
+
+

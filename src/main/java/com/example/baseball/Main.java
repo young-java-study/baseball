@@ -5,30 +5,22 @@ import java.util.Scanner;
 public class Main {
 
   private static boolean START = true;
+  private final static int THREE_STRIKE = 3;
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     while (START) {
-      RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-      while (true) {
-        ShowMessage.showInputMessage();
+      ShowMessage.showInputMessage();
+      CheckUserNumber checkUserNumber = new CheckUserNumber(scanner.nextInt());
+      CompareNumber compareNumber = new CompareNumber(RandomNumberGeneratorList.generateRandomNumberList());
+      ShowMessage.resultStatus(compareNumber.countBall(checkUserNumber.getUserNumber()),
+          compareNumber.countStrike(checkUserNumber.getUserNumber()));
 
-        CheckUserNumber checkUserNumber = new CheckUserNumber(scanner.nextInt());
-        CompareNumber compareNumber = new CompareNumber(checkUserNumber.getUserNumber(),
-            randomNumberGenerator.getRandomNumber());
-        ShowResult showResult = new ShowResult(compareNumber.countBall(),
-            compareNumber.countStrike());
-        System.out.println(showResult.getMESSAGE());
-        if (compareNumber.countStrike() == 3) {
-          break;
-        }
-
+      if (compareNumber.countStrike(checkUserNumber.getUserNumber()) == THREE_STRIKE) {
+        ShowMessage.printSuccessMessage();
+        ShowMessage.askRestart();
+        START = CheckGameRestart.checkRestart(scanner.nextInt());
       }
-      ShowMessage.printSuccessMessage();
-      ShowMessage.askRestart();
-      CheckGameRestart checkGameRestart = new CheckGameRestart(scanner.nextInt());
-      START = checkGameRestart.getGameRestartChoice();
     }
   }
 }
-

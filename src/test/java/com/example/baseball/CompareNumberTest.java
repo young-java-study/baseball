@@ -1,32 +1,26 @@
 package com.example.baseball;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class CompareNumberTest {
+
   @Test
-  @DisplayName("countBall테스트")
-  public void testCountBall() {
-    int[] userNumber = {1, 2, 3};
-    int[] randomNumber = {3, 1, 2};
+  void countStrike() {
+    int[] userNumberList = {1,5,7};
+    int[] randomNumberList = {1,5,7};
+    CompareNumber compareNumber = new CompareNumber(randomNumberList);
 
-    CompareNumber compareNumber = new CompareNumber(userNumber,randomNumber);
-    int ballCount = compareNumber.countBall();
-
-    assertEquals(3, ballCount);
+    assertThat(compareNumber.countStrike(userNumberList)).isEqualTo(3);
   }
   @Test
-  @DisplayName("countStrike테스트")
-  public void testCountStrike() {
-    int[] userNumber = {8, 1, 3};
-    int[] randomNumber = {1, 4, 3};
+  void countBall() {
+    int[] userNumberList = {1,5,7};
+    int[] randomNumberList = {5,1,2};
+    CompareNumber compareNumber = new CompareNumber(randomNumberList);
 
-    CompareNumber compareNumber = new CompareNumber(userNumber,randomNumber);
-    int strikeCount = compareNumber.countStrike();
-
-    assertEquals(1, strikeCount);
+    assertThat(compareNumber.countBall(userNumberList)).isEqualTo(2);
   }
-
 }
